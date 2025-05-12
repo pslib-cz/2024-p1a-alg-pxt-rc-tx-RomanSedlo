@@ -13,7 +13,8 @@ type drivingSignal = {
 let drivingPackage: drivingSignal = {x: 0, y: 0, z: 0 }
 let ready = false
 let serialNumber = control.deviceSerialNumber()
-let encodedSerialNumber = serialNumber ^ 1234
+let key = 1234
+let encodedSerialNumber = serialNumber ^ key
 
 radio.sendValue("data", encodedSerialNumber)
 
