@@ -8,14 +8,23 @@ type drivingSignal = {
     z: number
 }
 
+
 let safeKey = "123ABC"
 let drivingPackage: drivingSignal = { x: 0, y: 0, z: 0 }
+let ready = false
+
+let stringPackage: string
 
 //control.deviceSerialNumber()
 //radio.setTransmitSerialNumber(true)
 
-basic.forever(function () {
-    drivingPackage.x += 1
-    basic.showNumber(drivingPackage.x)
-    basic.pause(20)
+input.onButtonPressed(Button.A, function () {
+    ready = true
 })
+
+while (ready) {
+    radio.sendString(JSON.stringify(drivingPackage))
+    basic.pause(20)
+}
+
+
