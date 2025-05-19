@@ -15,8 +15,6 @@ let keySqequence: Array<number> = [4, 8, 6, 1, 5, 3, 4]
 
 let drivingPackage: drivingSignal = { k: keySqequence[0], x: 0, y: 0, z: 0 }
 let ready = false
-let serialNumber = control.deviceSerialNumber()
-
 
 function calibrate() {
     drivingPackage = { k: keySqequence[0], x: 0, y: 0, z: 0 }
