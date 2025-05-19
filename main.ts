@@ -9,6 +9,9 @@ type drivingSignal = {
     z: number
 }
 
+let serialNumber = control.deviceLongSerialNumber()
+console.log(serialNumber)
+
 let drivingPackage: drivingSignal = { x: 0, y: 0, z: 0 }
 let stringPackage: string
 let ready = false
@@ -18,7 +21,6 @@ function calibrate() {
     basic.showString("X")
     music.play(music.stringPlayable("A3 C4 E4 A4", 400), music.PlaybackMode.UntilDone)
 }
-
 
 input.onButtonPressed(Button.A, function () {
     ready = true
