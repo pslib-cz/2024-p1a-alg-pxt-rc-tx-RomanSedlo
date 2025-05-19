@@ -2,7 +2,6 @@ radio.setGroup(12)
 radio.setTransmitPower(7)
 radio.setFrequencyBand(39)
 radio.setTransmitSerialNumber(true)
-control.deviceSerialNumber()
 
 type drivingSignal = {
     k: number;
@@ -19,18 +18,18 @@ let ready = false
 function calibrate() {
     drivingPackage = { k: keySqequence[0], x: 0, y: 0, z: 0 }
     basic.showString("X")
-    music.play(music.stringPlayable("A3 C4 E4 A4", 200), music.PlaybackMode.UntilDone)
+    music.play(music.stringPlayable("A3 C4 E4 A4", 400), music.PlaybackMode.UntilDone)
 }
 
 
 input.onButtonPressed(Button.A, function () {
     ready = true
-    music.play(music.stringPlayable("C4 E4 G4 C5", 200), music.PlaybackMode.UntilDone)
+    music.play(music.stringPlayable("C4 E4 G4 C5", 400), music.PlaybackMode.UntilDone)
 })
 
 input.onButtonPressed(Button.B, function () {
-    ready = false
     calibrate()
+    ready = false
 })
 
 
