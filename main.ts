@@ -20,8 +20,8 @@ let serialNumber = control.deviceSerialNumber()
 
 function calibrate() {
     drivingPackage = { k: keySqequence[0], x: 0, y: 0, z: 0 }
-    music.play(music.stringPlayable("A3 C4 E4 A4", 200), music.PlaybackMode.UntilDone)
     basic.showString("X")
+    music.play(music.stringPlayable("A3 C4 E4 A4", 200), music.PlaybackMode.UntilDone)
 }
 
 
