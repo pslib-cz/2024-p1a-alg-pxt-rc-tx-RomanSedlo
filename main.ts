@@ -11,7 +11,7 @@ type drivingSignal = {
     z: number
 }
 
-let keySqequence: Array<number> = [4, 8, 6, 1, 5, 3, 4]
+let keySqequence: Array<number> = [4, 8, 6, 1, 5, 3, 4, 7, 2, 6, 0, 3, 9, 4, 8, 2, 6, 3, 7, 5, 2, 1, 0, 6, 8, 3, 5, 9];
 
 let drivingPackage: drivingSignal = { k: keySqequence[0], x: 0, y: 0, z: 0 }
 let ready = false
