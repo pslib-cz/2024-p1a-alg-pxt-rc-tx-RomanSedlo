@@ -3,7 +3,6 @@ radio.setTransmitPower(7)
 radio.setFrequencyBand(39)
 radio.setTransmitSerialNumber(true)
 
-
 type drivingSignal = {
     x: number;
     y: number;
@@ -15,7 +14,6 @@ let stringPackage: string
 let ready = false
 
 function calibrate() {
-    drivingPackage = { x: 0, y: 0, z: 0 }
     basic.showString("X")
     music.play(music.stringPlayable("A3 C4 E4 A4", 800), music.PlaybackMode.UntilDone)
 }
@@ -39,5 +37,5 @@ basic.forever(function () {
         stringPackage = `${drivingPackage.x},${drivingPackage.y},${drivingPackage.z}`
         radio.sendString(stringPackage)
     }
-    basic.pause(200)
+    basic.pause(40)
 })
