@@ -30,7 +30,6 @@ input.onButtonPressed(Button.B, function () {
     calibrate()
 })
 
-
 basic.forever(function () {
     if (ready) {
         basic.showString("R")
