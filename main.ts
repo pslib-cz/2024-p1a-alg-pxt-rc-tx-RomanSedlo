@@ -21,8 +21,9 @@ input.onButtonPressed(Button.A, function () {
 })
 
 input.onButtonPressed(Button.B, function () {
+    basic.pause(40)
     ready = false
-    basic.pause(50)
+    basic.pause(40)
     stopPackage = "stop"
     radio.sendString(stopPackage)
     basic.showString("X")
