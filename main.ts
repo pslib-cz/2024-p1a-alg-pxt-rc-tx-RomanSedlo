@@ -11,16 +11,9 @@ type drivingSignal = {
 
 let drivingPackage: drivingSignal = { x: 0, y: 0, z: 0 }
 let stringPackage: string
-let stopPackage: number
+let stopPackage: string
 let ready = false
 
-function calibrate() {
-    stopPackage = 9989
-    basic.pause(50)
-    radio.sendNumber(stopPackage)
-    basic.showString("X")
-    music.play(music.stringPlayable("A3 C4 E4 A4", 800), music.PlaybackMode.UntilDone)
-}
 
 input.onButtonPressed(Button.A, function () {
     ready = true
@@ -29,7 +22,11 @@ input.onButtonPressed(Button.A, function () {
 
 input.onButtonPressed(Button.B, function () {
     ready = false
-    calibrate()
+    basic.pause(50)
+    stopPackage = "stop"
+    radio.sendString(stopPackage)
+    basic.showString("X")
+    music.play(music.stringPlayable("A3 C4 E4 A4", 800), music.PlaybackMode.UntilDone)
 })
 
 basic.forever(function () {
