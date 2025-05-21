@@ -12,7 +12,7 @@ type drivingSignal = {
 let drivingPackage: drivingSignal = { x: 0, y: 0, z: 0 }
 let stringPackage: string
 let stopPackage: string
-let ready = false
+let ready: boolean
 
 
 input.onButtonPressed(Button.A, function () {
