@@ -14,6 +14,9 @@ let stringPackage: string
 let ready = false
 
 function calibrate() {
+    drivingPackage = { x: 0, y: 0, z: 0 }
+    stringPackage = `${drivingPackage.x},${drivingPackage.y},${drivingPackage.z}`
+    radio.sendString(stringPackage)
     basic.showString("X")
     music.play(music.stringPlayable("A3 C4 E4 A4", 800), music.PlaybackMode.UntilDone)
 }
@@ -37,5 +40,5 @@ basic.forever(function () {
         stringPackage = `${drivingPackage.x},${drivingPackage.y},${drivingPackage.z}`
         radio.sendString(stringPackage)
     }
-    basic.pause(40)
+    basic.pause(20)
 })
