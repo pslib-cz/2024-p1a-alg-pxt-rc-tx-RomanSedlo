@@ -2,6 +2,7 @@ radio.setGroup(12)
 radio.setTransmitPower(7)
 radio.setFrequencyBand(39)
 radio.setTransmitSerialNumber(true)
+console.log(control.deviceSerialNumber())
 
 type drivingSignal = {
     x: number;
@@ -21,9 +22,9 @@ input.onButtonPressed(Button.A, function () {
 })
 
 input.onButtonPressed(Button.B, function () {
-    basic.pause(40)
+    basic.pause(20)
     ready = false
-    basic.pause(40)
+    basic.pause(20)
     stopPackage = "stop"
     radio.sendString(stopPackage)
     basic.showString("X")
@@ -39,5 +40,5 @@ basic.forever(function () {
         stringPackage = `${drivingPackage.x},${drivingPackage.y},${drivingPackage.z}`
         radio.sendString(stringPackage)
     }
-    basic.pause(20)
+    basic.pause(5)
 })
