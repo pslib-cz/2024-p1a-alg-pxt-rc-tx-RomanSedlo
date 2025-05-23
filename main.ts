@@ -21,15 +21,6 @@ input.onButtonPressed(Button.A, function () {
     music.play(music.stringPlayable("C4 E4 G4 C5", 800), music.PlaybackMode.UntilDone)
 })
 
-input.onButtonPressed(Button.B, function () {
-    basic.pause(20)
-    ready = false
-    basic.pause(20)
-    stopPackage = "stop"
-    radio.sendString(stopPackage)
-    basic.showString("X")
-    music.play(music.stringPlayable("A3 C4 E4 A4", 800), music.PlaybackMode.UntilDone)
-})
 
 basic.forever(function () {
     if (ready) {
@@ -41,4 +32,13 @@ basic.forever(function () {
         radio.sendString(stringPackage)
     }
     basic.pause(5)
+})
+
+input.onButtonPressed(Button.B, function () {
+    ready = false
+    basic.pause(10)
+    stopPackage = "stop"
+    radio.sendString(stopPackage)
+    basic.showString("X")
+    music.play(music.stringPlayable("A3 C4 E4 A4", 800), music.PlaybackMode.UntilDone)
 })
