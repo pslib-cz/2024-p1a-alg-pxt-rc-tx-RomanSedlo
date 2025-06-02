@@ -21,24 +21,23 @@ input.onButtonPressed(Button.A, function () {
     music.play(music.stringPlayable("C4 E4 G4 C5", 800), music.PlaybackMode.UntilDone)
 })
 
-
-basic.forever(function () {
-    if (ready) {
-        basic.showString("R")
-        drivingPackage.x = input.acceleration(Dimension.X)
-        drivingPackage.y = input.acceleration(Dimension.Y)
-        drivingPackage.z = input.acceleration(Dimension.Z)
-        stringPackage = `${drivingPackage.x},${drivingPackage.y},${drivingPackage.z}`
-        radio.sendString(stringPackage)
-    }
-    basic.pause(5)
-})
-
 input.onButtonPressed(Button.B, function () {
     ready = false
     basic.pause(10)
     stopPackage = "stop"
     radio.sendString(stopPackage)
-    basic.showString("X")
+    basic.showString("X", 0)
     music.play(music.stringPlayable("A3 C4 E4 A4", 800), music.PlaybackMode.UntilDone)
+})
+
+basic.forever(function () {
+    if (ready) {
+        basic.showString("R", 0)
+        drivingPackage.x = input.acceleration(Dimension.X)
+        drivingPackage.y = -input.acceleration(Dimension.Y)
+        drivingPackage.z = input.acceleration(Dimension.Z)
+        stringPackage = `${drivingPackage.x},${drivingPackage.y},${drivingPackage.z}`
+        radio.sendString(stringPackage)
+    }
+    basic.pause(5)
 })
