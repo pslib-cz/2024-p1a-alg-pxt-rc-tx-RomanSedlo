@@ -28,13 +28,14 @@ input.onButtonPressed(Button.B, function () {
     radio.sendString(stopPackage)
     basic.showString("X", 0)
     music.play(music.stringPlayable("A3 C4 E4 A4", 800), music.PlaybackMode.UntilDone)
+    console.log(control.deviceSerialNumber())
 })
 
 basic.forever(function () {
     if (ready) {
         basic.showString("R", 0)
-        drivingPackage.x = input.acceleration(Dimension.X)
-        drivingPackage.y = -input.acceleration(Dimension.Y)
+        drivingPackage.x = -input.acceleration(Dimension.X)
+        drivingPackage.y = input.acceleration(Dimension.Y)
         drivingPackage.z = input.acceleration(Dimension.Z)
         stringPackage = `${drivingPackage.x},${drivingPackage.y},${drivingPackage.z}`
         radio.sendString(stringPackage)
