@@ -6,6 +6,7 @@ console.log(control.deviceSerialNumber())
 
 let run: string = "run";
 let turn: string = "turn";
+let mid: string = "mid";
 
 function sendApply(state:string) {
     radio.sendString(state)
@@ -13,10 +14,14 @@ function sendApply(state:string) {
 }
 
 input.onButtonPressed(Button.A, function () {
-    sendApply(run)
+    sendApply(run) //levo
 })
 
 input.onButtonPressed(Button.B, function () {
-    sendApply(turn)
+    sendApply(turn) //pravo
     console.log(control.deviceSerialNumber())
+})
+
+input.onLogoEvent(TouchButtonEvent.Pressed, function() {
+    sendApply(mid) //mid
 })
